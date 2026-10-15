@@ -441,7 +441,7 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
     </section>
 
     <section>
-      <div class="sh"><h2>Biggest hits</h2><p class="note">Highest outlier scores among videos from the last 2 years that are at least 60 days old. Typical then is the median views of the channel's nearby uploads, the bar each video is measured against. * marks a channel's newest scored videos, whose scores are rough and often run high.</p></div>
+      <div class="sh"><h2>Videos</h2><p class="note">Top 3 per channel shows each channel's biggest hits from the last 2 years. All and the channel buttons list every long video, highest outlier score first. Typical then is the median views of the channel's nearby uploads, the bar each video is measured against. * marks a rough score.</p></div>
       <div class="seg" id="hit-pick" style="margin-bottom:12px"></div>
       <div class="tbl-wrap"><table class="vt" id="hits"></table></div>
     </section>
@@ -651,13 +651,13 @@ window.__METHOD__ = `
     }).join("")}</tr>`).join("");
     document.getElementById(id).innerHTML = head + `<tbody>${body}</tbody>`;
   }
-  const HS = { sort: "grp", dir: -1, c: "" };
+  const HS = { sort: "grp", dir: -1, c: "top" };
   function renderHits() {
-    // a channel's 10 oldest scored videos are measured against its first, tiny uploads, so they're left out
-    const pool = LONG.filter((v) => v.o != null && v.age <= 730 && v.e !== 1);
-    pickSeg("hit-pick", [["", "Top 3 per channel", null], ...CH.map((c) => [String(c.i), SHORT[c.i], pool.filter((v) => v.c === c.i).length])], HS.c, (k) => { HS.c = k; HS.sort = k === "" ? "grp" : "o"; HS.dir = -1; renderHits(); });
-    const top = (c, n) => pool.filter((v) => v.c === c).sort((p, q) => q.o - p.o).slice(0, n);
-    const L = HS.c === "" ? CH.flatMap((c) => top(c.i, 3)) : top(+HS.c, 15);
+    // hits: last 2 years, at least 60 days old; a channel's 10 oldest scored videos are measured against its first, tiny uploads, so they're left out
+    const hits = LONG.filter((v) => v.o != null && v.age <= 730 && v.e !== 1);
+    pickSeg("hit-pick", [["top", "Top 3 per channel", null], ["all", "All", LONG.length], ...CH.map((c) => [String(c.i), SHORT[c.i], LONG.filter((v) => v.c === c.i).length])], HS.c, (k) => { HS.c = k; HS.sort = k === "top" ? "grp" : "o"; HS.dir = -1; renderHits(); });
+    const L = HS.c === "top" ? CH.flatMap((c) => hits.filter((v) => v.c === c.i).sort((p, q) => q.o - p.o).slice(0, 3))
+      : HS.c === "all" ? LONG : LONG.filter((v) => v.c === +HS.c);
     videoTable("hits", L, ["t", "p", "f", "tp", "d", "v", "b", "o"], HS, renderHits);
   }
   function renderLandscape() {
