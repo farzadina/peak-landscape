@@ -620,7 +620,7 @@ window.__METHOD__ = `
   }
   function pickSeg(id, opts, cur, onPick) {
     const box = document.getElementById(id);
-    box.innerHTML = opts.map(([k, name, n]) => `<button type="button" data-k="${k}" aria-pressed="${cur === k}" ${n ? "" : "disabled"}>${name}${n != null ? ` <span class="mono">${n}</span>` : ""}</button>`).join("");
+    box.innerHTML = opts.map(([k, name, n]) => `<button type="button" data-k="${k}" aria-pressed="${cur === k}" ${n === 0 ? "disabled" : ""}>${name}${n != null ? ` <span class="mono">${n}</span>` : ""}</button>`).join("");
     box.querySelectorAll("button").forEach((b) => (b.onclick = () => onPick(b.dataset.k)));
   }
   const PS = { sort: "p", dir: -1, f: "" };
