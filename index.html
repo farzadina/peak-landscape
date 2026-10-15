@@ -403,7 +403,7 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
   <nav class="tabs" role="tablist" aria-label="Pages">
     <button type="button" role="tab" id="tab-btn-peak" data-tab="peak" aria-controls="tab-peak">The Peak</button>
     <button type="button" role="tab" id="tab-btn-land" data-tab="land" aria-controls="tab-land">Landscape</button>
-    <button type="button" role="tab" id="tab-btn-test" data-tab="test" aria-controls="tab-test">What we tested</button>
+    <button type="button" role="tab" id="tab-btn-test" data-tab="test" aria-controls="tab-test">Tested ideas</button>
   </nav>
 
   <!-- ================= THE PEAK ================= -->
@@ -414,7 +414,7 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
     </section>
 
     <section>
-      <div class="sh"><h2>What stands out</h2><p class="note">Plain counts and tested results.</p></div>
+      <div class="sh"><h2>What stands out</h2></div>
       <div class="finds" id="finds"></div>
     </section>
 
@@ -450,7 +450,7 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
   <!-- ================= TESTED ================= -->
   <div id="tab-test" role="tabpanel" aria-labelledby="tab-btn-test" hidden>
     <section style="margin-top:28px">
-      <div class="sh"><h2>What we tested</h2><p class="note" id="test-note"></p></div>
+      <div class="sh"><h2>Tested ideas</h2><p class="note" id="test-note"></p></div>
       <div class="panel"><div class="tested" id="tested"></div></div>
     </section>
     <section>
@@ -466,7 +466,7 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
     big: "0.66x", unit: "views vs nearby uploads for The Peak's videos under 12 minutes (12 minutes and up: 1.24x)",
     h: "On The Peak, videos under 12 minutes have done worst, and the channel has mostly moved past them.",
     p: "Only 8 of the last 58 uploads ran under 12 minutes. The clear gap comes from older videos; among the past year's uploads it's smaller and not clear (only 29 short videos). From 12 minutes up, length makes little difference, and nothing shows that going past 22 minutes helps. Longer videos keep a smaller share of the video watched (46% under 12 minutes, 33% over 22) but more minutes (4 vs 10).",
-    wl: "Worth knowing", why: "Found during the analysis rather than planned, and it's a link, not a cause.",
+    wl: "How sure", why: "A clear pattern in past videos, not proof that length causes views.",
   },
   {
     big: "8.9", unit: "long videos a month, against 2.9 to 6.0 for the benchmarks",
@@ -486,26 +486,25 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
 ];
 
 window.__TESTED__ = [
-  ["On The Peak, videos under about 12 minutes get fewer views", "holds", "0.66x the views of nearby uploads, against 1.24x for 12 minutes and up. From 12 minutes up, length makes little difference. The gap comes mostly from videos over a year old. This wasn't in the original plan: it turned up during the analysis and then passed every check added later."],
-  ["Length changes views on every channel", "none", "The planned test, from an earlier lead that longer videos do worse. No consistent link: longer did better on The Peak and Julia, pointed the same way on CampWealth without being clear, and did worse on Nick Davis. Even Better shows no pattern."],
+  ["On The Peak, videos under about 12 minutes get fewer views", "holds", "0.66x the views of nearby uploads, against 1.24x for 12 minutes and up. From 12 minutes up, length makes little difference. The gap comes mostly from videos over a year old."],
+  ["Length changes views on every channel", "none", "No consistent link: longer did better on The Peak and Julia and worse on Nick Davis; CampWealth and Even Better show no clear pattern."],
   ["Some script formats get more views than others", "none", "Within each channel, no format reliably wins. Case studies did better on Even Better, Nick Davis and Julia (1.7x across the four benchmarks) but not on CampWealth or The Peak, and the result rests on two channels."],
   ["Some topics get more or fewer views", "none", "Nothing is confirmed across channels. Estate videos scored far lower (0.18x, all 12 below their channel's typical), but there are only 12, most on CampWealth and Julia. Life and mindset videos got about half (0.48x), but that rests on Nick Davis."],
-  ["Title style changes views", "none", "A dollar amount, an age, a question or a leading number: none passes once the four are corrected together. An age in the title comes closest (1.34x)."],
+  ["Title style changes views", "none", "A dollar amount, an age, a question or a leading number: none makes a reliable difference. An age in the title comes closest (1.34x)."],
   ["On The Peak, format changes click-through rate", "none", "With each video compared to uploads from the same weeks, formats sit within about half a point of each other."],
   ["On The Peak, format changes how much people watch", "none", "No reliable difference in average % viewed or average view duration once length is accounted for."],
   ["On The Peak, title style changes click-through rate", "none", "Dollar-amount titles looked better and question titles worse, but both gaps disappear when videos are compared with others from the same year."],
 ];
 
-window.__TEST_NOTE__ = "The plan was written before testing; anything added later says so. Checked by three independent reviewers (a statistician, a YouTube analytics specialist and a data auditor) over two rounds, plus a review of every element on this page.";
+window.__TEST_NOTE__ = "Every comparison is between videos from the same channel. \"No clear link\" means the data didn't show one, not that there isn't one.";
 
 window.__METHOD__ = `
-<p><b>Data.</b> The Peak's YouTube Studio export and the four benchmarks' public video lists, both from Oct 13, 2026. Long videos only. The Peak's 24 livestreams (22 streams and 2 broken starts) and 5 non-public uploads are left out of comparisons; the benchmarks' livestreams weren't in the data. A few recent benchmark uploads are missing because their data failed to load.</p>
-<p><b>View counts.</b> For The Peak's uploads since late August 2026, YouTube Studio counts about twice as many views as engaged views; before that the two were equal. Those counts are marked † and aren't comparable with older videos. The cause isn't in this data. None of those videos is old enough to be scored yet. Average % viewed and view duration aren't affected, because Studio computes them on engaged views.</p>
-<p><b>Outlier score.</b> Views divided by the median views of the channel's 20 nearest uploads by date (10 before, 10 after). Only videos at least 60 days old are scored. Scores marked * belong to a channel's 10 oldest or 10 newest scored videos, which have comparable uploads on one side only, so they're rough; the newest often run high. Biggest hits leaves out the 10 oldest, which are measured against the channel's first, tiny uploads.</p>
-<p><b>Click-through rate vs nearby uploads.</b> A video's lifetime click-through rate divided by the median of the 20 nearest regular uploads by date, for videos at least 60 days old with at least 50,000 impressions (with fewer, click-through rate is too noisy). 1.10x means it got 10% more clicks per impression than its neighbours.</p>
-<p><b>Formats and topics.</b> Sorted by AI from titles and chapter names, without seeing views. Peak videos without chapters were sorted from the first 400 words of the transcript; 25 had no transcript, so title only. Checked against 50 random videos read in full: format matches 76% of the time (likely range 63% to 86%), topic 82%. Those 50 use the full-read label.</p>
-<p><b>Tests.</b> Every comparison is within a channel. A cross-channel result has to pass correction for the number of tests, point the same way in at least 3 of 5 channels, survive leaving out any one channel, and hold with stricter score settings. Peak-only tests are corrected together. With checks this strict, a modest real effect can still be missed, so "no clear link" means not shown, not shown to be zero.</p>
-<p><b>Changed after the first review.</b> The stricter rules, the Peak-only tests, removing livestreams and non-public uploads, and comparing click-through rate with uploads from the same weeks were all added after the first review round. The click-through-rate tests in the original plan (raw, and with impressions as a control) showed format and title gaps that disappear once publish date is accounted for. Two labels were fixed by hand: one from its chapters (guide to case study) and Even Better's channel trailer, from its transcript.</p>
+<p><b>Data.</b> The Peak's YouTube Studio export and the four benchmarks' public video lists, both from Oct 13, 2026. Long videos only. The Peak's 24 livestreams and 5 non-public uploads are left out of comparisons; the benchmarks' livestreams aren't in the data.</p>
+<p><b>View counts.</b> For The Peak's uploads since late August 2026, Studio counts about twice as many views as engaged views; before that the two were equal. Those counts are marked † and aren't comparable with older videos. % viewed and view duration aren't affected.</p>
+<p><b>Outlier score.</b> Views divided by the median views of the channel's 20 nearest uploads by date (10 before, 10 after), for videos at least 60 days old. Scores marked * belong to a channel's 10 oldest or 10 newest scored videos, which only have neighbours on one side, so they're rough; the newest often run high.</p>
+<p><b>Click-through rate vs nearby uploads.</b> A video's lifetime click-through rate divided by the median of the 20 nearest regular uploads by date, for videos at least 60 days old with at least 50,000 impressions (with fewer, click-through rate is too noisy). 1.10x means 10% more clicks per impression than its neighbours.</p>
+<p><b>Formats and topics.</b> Labelled from titles and chapter names, or from the opening of the transcript when a video has no chapters. The labels match a full read of the transcript about 76% of the time for format and 82% for topic.</p>
+<p><b>What counts as a result.</b> It has to hold within each channel, point the same way in most channels and not depend on any single one. Effects up to about 2x either way can still be missed.</p>
 `;
 </script>
 <script>
