@@ -401,6 +401,10 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
 .switch a[aria-current="page"] em { border-color: currentColor; opacity: 0.7; }
 .switch a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .switch + .mast { padding-top: 22px; }
+/* larger card text */
+.find h3 { font-size: 18.5px; }
+.find p { font-size: 16px; line-height: 1.55; }
+.find .big span { font-size: 14px; }
 </style>
 
 </head>
@@ -484,8 +488,8 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
   {
     big: "0.66x", unit: "views vs nearby uploads for The Peak's videos under 12 minutes (12 minutes and up: 1.24x)",
     h: "On The Peak, videos under 12 minutes have done worst, and the channel has mostly moved past them.",
-    p: "Only 8 of the last 58 uploads ran under 12 minutes. The clear gap comes from older videos; among the past year's uploads it's smaller and not clear (only 29 short videos). From 12 minutes up, length makes little difference, and nothing shows that going past 22 minutes helps. Longer videos keep a smaller share of the video watched (46% under 12 minutes, 33% over 22) but more minutes (4 vs 10).",
-    wl: "How sure", why: "A clear pattern in past videos, not proof that length causes views.",
+    p: "Only 8 of the last 58 uploads were that short. Past 12 minutes, length barely matters. Longer videos get watched for a smaller share but more minutes.",
+    wl: "How sure", why: "Clear in older videos, less clear in the past year's. A pattern, not proof that length causes views.",
   },
   {
     big: "8.9", unit: "long videos a month, against 2.9 to 6.0 for the benchmarks",
@@ -495,7 +499,7 @@ blockquote { margin: 2px 0 0; padding: 8px 12px; border-left: 2px solid var(--ax
   {
     big: "443 vs 2,702", unit: "median watch hours, livestreams (22 streams) vs regular uploads since July 27",
     h: "About half of The Peak's uploads since late July are livestreams, at about a sixth of the watch time.",
-    p: "Livestream viewers stay longer (12.7 vs 7.3 minutes), but far fewer people watch. What livestreams do for community or client leads isn't in this data.",
+    p: "Livestream viewers stay longer (12.7 vs 7.3 minutes), but far fewer people watch.",
   },
   {
     big: "784", unit: "videos compared within their own channel",
@@ -593,7 +597,7 @@ window.__METHOD__ = `
       ["Length", `${len[0]}–${len[1]}<small>min</small>`, `median ${len[2]} min`],
     ];
     document.getElementById("kpis").innerHTML = tiles.map(([k, v, d]) => `<div class="kpi"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
-    document.getElementById("yard-note").textContent = `Middle half of the ${Y.length} regular uploads that are ${MINAGE} days to 1 year old. Click-through rate is lifetime, so a brand-new upload usually runs higher.`;
+    document.getElementById("yard-note").textContent = `Half of The Peak's videos from the past year land inside each range. Livestreams and videos under ${MINAGE} days old are left out. Brand-new uploads usually start with a higher click-through rate.`;
   }
 
   /* ---------- findings ---------- */
